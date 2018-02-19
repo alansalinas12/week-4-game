@@ -1,0 +1,39 @@
+.gem {
+	height: 25%;
+	width: 25%;
+	min-height: 50px;
+	max-height: 150px;
+	min-width: 50px;
+	max-width: 150px;
+	align-self: center;
+}
+
+.gemcontainer {
+	align-content: center;
+	max-height: 200px
+}
+
+.titlebox {
+	
+	background-color: orange;
+	height: 60px;
+	margin-top: 10px;
+
+}
+
+.titlebox h1 {
+	text-align: center;
+
+}
+
+.instructions {
+	background-color: teal;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-top: 20px;
+	line-height: 15px;
+}
+.instructions p {
+	font-size: small;
+	font-weight: bold;
+}
