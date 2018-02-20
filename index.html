@@ -42,29 +42,34 @@
         Each time the game starts, the game will change the values of each crystal.
       </p>
     </div>
-    <!-- Target Point Box -->
-    <div class="container">
-      <h1 id="target-points">Points to match: 0</h1>
+    <!-- Target Point Box and wins/loses-->
+    <div class="container statbox">
+      <div class="row">
+        <div class="col col-8">
+          <h1 id="target-points">Points to match: 0</h1>
+        </div>
+        <!-- Win/Lose Box -->   
+        <div class="col col-4">
+          <h3 id="win-count">Wins: 0</h3>
+          <h3 id="lose-count">Loses: 0</h3>
+        </div>
+      </div>
     </div>
-    <!-- Win/Lose Box -->
-    <div class="container">
-      <h3 id="win-count">Wins: 0</h3>
-      <h3 id="lose-count">Loses: 0</h3>
-    </div>
+    
     <!-- Gems Box -->
-    <div class="container-fluid">
+    <div class="container gemcontainer">
       <div class="row">
         <div class="col">
-          <img id="red-gem" class="gem rounded mx-auto d-block" src="assets/images/redgem.png">
+          <img id="red-gem" class="gem rounded mx-auto d-block" value="0" src="assets/images/redgem.png">
         </div>
         <div class="col">
-          <img id="blue-gem" class="gem rounded mx-auto d-block" src="assets/images/bluegem.png">
+          <img id="blue-gem" class="gem rounded mx-auto d-block" value="0" src="assets/images/bluegem.png">
         </div>
         <div class="col">
-          <img id="yellow-gem" class="gem rounded mx-auto d-block" src="assets/images/yellowgem.png">
+          <img id="yellow-gem" class="gem rounded mx-auto d-block" value="0" src="assets/images/yellowgem.png">
         </div>
         <div class="col">
-          <img id="green-gem" class="gem rounded mx-auto d-block" src="assets/images/greengem.png">
+          <img id="green-gem" class="gem rounded mx-auto d-block" value="0" src="assets/images/greengem.png">
         </div>
       </div>
     </div>

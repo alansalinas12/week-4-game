@@ -5,12 +5,13 @@
 	max-height: 150px;
 	min-width: 50px;
 	max-width: 150px;
-	align-self: center;
+
 }
 
 .gemcontainer {
-	align-content: center;
-	max-height: 200px
+	padding-bottom: 20px;
+	max-height: 200px;
+	max-width: 75%;
 }
 
 .titlebox {
@@ -36,4 +37,8 @@
 .instructions p {
 	font-size: small;
 	font-weight: bold;
+}
+
+.statbox {
+	padding-bottom: 20px;
 }
