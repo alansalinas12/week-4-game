@@ -10,17 +10,12 @@ $(document).ready(function() {
 	var greenGem = 0;
 	var currentPoints = 0;
 
-	var isGameWon = false;
-	var isGameLost = false;
 
-
-	
+	initializeGame();
 
 	function initializeGame() {
 	
 	$("#target-points, #current-points, #red-gem, #blue-gem, #yellow-gem, #green-gem").empty();
-	$("#target-points").text("Target points: " + targetPoints);
-	$("#current-points").text("Current points: " + currentPoints);
 
 		function getTargetPoints (min, max) {
 		  min = Math.ceil(19);
@@ -41,19 +36,29 @@ $(document).ready(function() {
 		yellowGem =  getGemPoints();
 		greenGem =  getGemPoints();
 		currentPoints = 0;
-		isGameWon = false;
-		isGameLost = false;
-
-	}
-	
-	initializeGame();
 
 	$("#target-points").text("Target points: " + targetPoints);
+	$("#current-points").text("Current points: " + currentPoints);
+	$("#lose-count").text("Loses: " + loseCount);
+	$("#win-count").text("Wins: " + winCount);
 	$("#red-gem").attr('value', redGem);
 	$("#blue-gem").attr('value', blueGem);
 	$("#yellow-gem").attr('value', yellowGem);
 	$("#green-gem").attr('value', greenGem);
-	$("#current-points").text("Current points: " + currentPoints);
+
+	}
+
+	function gameWon() {
+		winCount++;
+		initializeGame();
+	}
+
+	function gameLost() {
+		loseCount++;
+		initializeGame();
+	}	
+
+
 
 	$(".gemcontainer").on("click", ".gem", function() {
 		$("#target-points").text("Target points: " + targetPoints);
@@ -62,41 +67,17 @@ $(document).ready(function() {
 
 			currentPoints += parseInt($(this).attr('value'));
 			$("#current-points").text("Current points: " + currentPoints);
-
 		}
 
 		else if (currentPoints > targetPoints) {
-
-			return isGameLost = true;
+			gameLost();
 		}
 
 		else {
-
-			return isGameWon = true;
-
+			gameWon();
 		}
 		
 	})
-
-	function gameWon() {
-		winCount = winCount++;
-		$("#win-count").text("Wins: " + winCount);
-		initializeGame();
-	}
-
-	function gameLost() {
-		loseCount = loseCount++;
-		$("#lose-count").text("Loses: " + loseCount);
-		initializeGame();
-	}
-
-	if (isGameWon) {
-		gameWon();
-	}
-
-	if (isGameLost) {
-		gameLost();
-	}
 
 
 });
