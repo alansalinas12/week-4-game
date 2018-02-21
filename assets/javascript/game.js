@@ -11,12 +11,16 @@ $(document).ready(function() {
 	var currentPoints = 0;
 
 	var isGameWon = false;
+	var isGameLost = false;
 
 
+	
 
 	function initializeGame() {
 	
 	$("#target-points, #current-points, #red-gem, #blue-gem, #yellow-gem, #green-gem").empty();
+	$("#target-points").text("Target points: " + targetPoints);
+	$("#current-points").text("Current points: " + currentPoints);
 
 		function getTargetPoints (min, max) {
 		  min = Math.ceil(19);
@@ -37,8 +41,11 @@ $(document).ready(function() {
 		yellowGem =  getGemPoints();
 		greenGem =  getGemPoints();
 		currentPoints = 0;
+		isGameWon = false;
+		isGameLost = false;
 
 	}
+	
 	initializeGame();
 
 	$("#target-points").text("Target points: " + targetPoints);
@@ -49,6 +56,7 @@ $(document).ready(function() {
 	$("#current-points").text("Current points: " + currentPoints);
 
 	$(".gemcontainer").on("click", ".gem", function() {
+		$("#target-points").text("Target points: " + targetPoints);
 		
 		if (currentPoints < targetPoints) {
 
@@ -58,20 +66,38 @@ $(document).ready(function() {
 		}
 
 		else if (currentPoints > targetPoints) {
-				loseCount = loseCount++;
-				$("#lose-count").text("Loses: " + loseCount);
-				initializeGame();
+
+			return isGameLost = true;
 		}
 
 		else {
-				winCount = winCount++;
-				$("#win-count").text("Wins: " + winCount);
-				initializeGame();
+
+			return isGameWon = true;
+
 		}
 		
-		
-
 	})
+
+	function gameWon() {
+		winCount = winCount++;
+		$("#win-count").text("Wins: " + winCount);
+		initializeGame();
+	}
+
+	function gameLost() {
+		loseCount = loseCount++;
+		$("#lose-count").text("Loses: " + loseCount);
+		initializeGame();
+	}
+
+	if (isGameWon) {
+		gameWon();
+	}
+
+	if (isGameLost) {
+		gameLost();
+	}
 
 
 });
+
