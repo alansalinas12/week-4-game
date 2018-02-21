@@ -1,9 +1,5 @@
 $(document).ready(function() {
 	
-	
-
-
-
 
 	var targetPoints = 0;
 	var winCount = 0;
@@ -35,43 +31,30 @@ $(document).ready(function() {
 		  return Math.floor(Math.random() * (max - min + 1)) + min;
 		}
 		
-		var targetPoints = getTargetPoints();
-		var redGem = getGemPoints();
-		var blueGem = getGemPoints();
-		var yellowGem =  getGemPoints();
-		var greenGem =  getGemPoints();
+		targetPoints = getTargetPoints();
+		redGem = getGemPoints();
+		blueGem = getGemPoints();
+		yellowGem =  getGemPoints();
+		greenGem =  getGemPoints();
+		currentPoints = 0;
 
 	}
-	console.log(targetPoints)
+	initializeGame();
+
 	$("#target-points").text("Target points: " + targetPoints);
-	$("#red-gem").val(redGem);
-	$("#blue-gem").val(blueGem);
-	$("#yellow-gem").val(yellowGem);
-	$("#green-gem").val(greenGem);
+	$("#red-gem").attr('value', redGem);
+	$("#blue-gem").attr('value', blueGem);
+	$("#yellow-gem").attr('value', yellowGem);
+	$("#green-gem").attr('value', greenGem);
+	$("#current-points").text("Current points: " + currentPoints);
 
 	$(".gemcontainer").on("click", ".gem", function() {
-		if (currentPoints < targetPoints) {
-			currentPoints += $(this).val();
-			$("#current-points").text(currentPoints);
-		} else {
-			return isGameLost = true;
-		}
+		
+		currentPoints += parseInt($(this).attr('value'));
+		$("#current-points").text("Current points: " + currentPoints);
 
-		if (currentPoints === targetPoints) {
-			return isGameWon = true;
-		}
 
-		if (isGameWon) {
-			winCount = winCount++;
-			$("#win-count").text(winCount);
-			initializeGame();
-		}
-
-		if (isGameLost) {
-			loseCount = loseCount++;
-			$("#lose-count").text(loseCount);
-			initializeGame();
-		}
+		
 	})
 
 
