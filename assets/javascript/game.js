@@ -11,7 +11,7 @@ $(document).ready(function() {
 	var currentPoints = 0;
 
 	var isGameWon = false;
-	var isGameLost = false;
+
 
 
 	function initializeGame() {
@@ -50,15 +50,28 @@ $(document).ready(function() {
 
 	$(".gemcontainer").on("click", ".gem", function() {
 		
-		currentPoints += parseInt($(this).attr('value'));
-		$("#current-points").text("Current points: " + currentPoints);
+		if (currentPoints < targetPoints) {
 
+			currentPoints += parseInt($(this).attr('value'));
+			$("#current-points").text("Current points: " + currentPoints);
 
+		}
+
+		else if (currentPoints > targetPoints) {
+				loseCount = loseCount++;
+				$("#lose-count").text("Loses: " + loseCount);
+				initializeGame();
+		}
+
+		else {
+				winCount = winCount++;
+				$("#win-count").text("Wins: " + winCount);
+				initializeGame();
+		}
 		
+		
+
 	})
-
-
-
 
 
 });
